@@ -13,22 +13,20 @@ from random import seed
 seed(8)
 
 style.use('seaborn-poster')
-dr = 0.142                #distancia entre átomos
-phi = 60*mt.pi/180        #ângulo do pentagono
-theta = 300*mt.pi/180     #ângulo disclinação
-apx = 19.2*mt.pi/180      #ângulo apice
+dr = 0.142                #Atoms Distance
+phi = 60*mt.pi/180        #Pentagon angle
+theta = 300*mt.pi/180     #Disclination angle
+apx = 19.2*mt.pi/180      #Apex anglr
 
 
-L = 10                    #tamanho folha de grafeno para o cone
-Lg = 4                    #tamanho folha de grafeno para pistão
+L = 10                    #Size of the carbon sheet
 
-no = 343                  #numero de oxigênios
 
 n = int((L+0.1)/(2*dr*mt.sin(phi)))
 m = int((L+0.1)/(dr*mt.cos(phi)+2*dr))
-N = 4*m*n                 #número total de átomos da folha de grafeno
+N = 4*m*n                 #Number of atoms in the sheet
 
-# Constroi folha de grafeno por linhas
+# Builds graphene sheet by lines
 
 x = []
 y = []
@@ -49,7 +47,7 @@ for j in range (0, m):
         x.append(x[i])
         y.append(j*dy + (2*drcos+dr))
             
-# Tornando grafeno redondo
+# Making graphene round
 xr = []
 yr = []
 
@@ -60,7 +58,7 @@ for i in range (0,N):
         yr.append(y[i]- L/2)
         Nr+=1
         
-# Cortando ângulo de disclinação
+# Cutting disclination angle
 
 xf = []
 yf = []
@@ -76,7 +74,7 @@ if (theta > mt.pi):
             yf.append(yi)
             Nf+=1
            
-# Troca de coordenadas para torcer q folha
+# Exchange of coordinates to twist the sheet
 alpha = []
 l = []
 X = []
@@ -90,7 +88,7 @@ for i in range (0,Nf):
         Y.append(((l[i]*ang)/(2*mt.pi)) * mt.sin((alpha[i]*2*mt.pi)/ang))
         Z.append(-l[i]* mt.sqrt(1 - ang/(2*mt.pi)))
 
-# Plotando átomos e suas ligações (2D e 3d)
+# Plottting atoms and its bouds (2D e 3d)
 
 p = np.zeros( (Nf, Nf) )
 fig = plt.figure()
