@@ -1,0 +1,1 @@
+This program creates a carbon nanocone by generating a carbon sheet, cutting it, and rotating it to form a cone. You have to choose the apex angle of the nanocone and the size of the carbon slab to define the size of the nanocone.
